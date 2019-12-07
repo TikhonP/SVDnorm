@@ -1,2 +1,5 @@
 # ignore all DS_Store
 *.DS_Store
+
+# ignore pycharm files
+.idea/
