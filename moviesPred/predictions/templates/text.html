@@ -20,12 +20,19 @@
 <body>
 <div class="container">
     <div align="center">
-        <h1>Easy text summarizer</h1>
+        <nav class="navbar navbar-dark bg-dark" style="background-color: #e3f2fd;">
+            <a class="navbar-brand" href="/">Easy text summarize</a>
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">powered by Tikhon Systems</a>
+        </nav>
         <p></p>
-        <h3>Сжатый текст:</h3>
-        <p></p>
-        <p>{{ text }}</p>
-        <p><a href="/">Ввести новый текст</a></p>
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">Сжатый текст:</h3>
+                <p></p>
+                <p class="card-text">{{ text }}</p>
+                <p><a href="/"">Ввести новый текст</a></p>
+            </div>
+        </div>
     </div>
 </div>
 </body>

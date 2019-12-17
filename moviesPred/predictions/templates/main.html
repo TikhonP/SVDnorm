@@ -20,17 +20,30 @@
 <body>
 <div class="container">
     <div align="center">
-        <h1>Easy text summarizer</h1>
+        <nav class="navbar navbar-dark bg-dark" style="background-color: #e3f2fd;">
+            <a class="navbar-brand" href="/">Easy text summarize</a>
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">powered by Tikhon Systems</a>
+        </nav>
         <p></p>
-        <p>Введите исходный текст:</p>
-        <p></p>
-        <form method="POST">
-            {% csrf_token %}
-            <textarea rows="15" cols="60" name="text"></textarea>
-            <p>Количество слов в выдаваемом саммари, оставьте пустым для автоматической настройки.</p>
-            <p><input type="text" name="wordcount"/></p>
-            <p><input type="submit" name="button" value="записать"/></p>
-        </form>
+        <div class="card">
+            <div class="card-body">
+                <form method="POST">
+                    <div class="form-group">
+                        {% csrf_token %}
+                        <label for="exampleFormControlTextarea1">Введите исходный текст:</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="15"
+                                  name="text" ,
+                                  placeholder="Вставьте текст, который надо сократить. Минимум 2 предложения."></textarea>
+                        <p></p>
+                        <label for="exampleFormControlTextarea1">Количество слов в выдаваемом саммари.</label>
+                        <input type="text" name="wordcount" class="form-control" id="exampleFormControlInput1"
+                               placeholder="Оставьте пустым для автоматической настройки.">
+                        <p></p>
+                        <button name="button" type="submit" class="btn btn-dark">Сократить текст</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
 </body>
