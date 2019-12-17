@@ -13,23 +13,17 @@
         crossorigin="anonymous"></script>
 <head>
     <meta charset="UTF-8">
-    <title>Easy text summarizer - Главная</title>
+    <title>Easy text summarizer - Текст</title>
 </head>
 <body>
 <div class="container">
     <div align="center">
         <h1>Easy text summarizer</h1>
         <p></p>
-        <p>Введите исходный текст:</p>
+        <h3>Сжатый текст:</h3>
         <p></p>
-        <form method="POST">
-            {% csrf_token %}
-            <textarea rows="15" cols="60" name="text"></textarea>
-            <p>Количество слов в выдаваемом саммари, оставьте пустым для автоматической настройки.</p>
-            <p><input type="text" name="wordcount"/></p>
-            <p><input type="submit" name="button" value="записать"/></p>
-        </form>
+        <p>{{ text }}</p>
+        <p><a href="/">Ввести новый текст</a></p>
     </div>
 </div>
 </body>
-</html>

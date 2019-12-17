@@ -25,7 +25,10 @@ SECRET_KEY = '7%+@p9(y%nj!822wdfn2v0op8$hrxtk*b-h7zl!49&!pp28h85'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'dolbeb.hopto.org',
+    'tikhon.zapto.org'
+]
 
 
 # Application definition
