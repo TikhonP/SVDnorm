@@ -27,7 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'dolbeb.hopto.org',
-    'tikhon.zapto.org'
+    'tikhon.zapto.org',
+    '127.0.0.1'
 ]
 
 
