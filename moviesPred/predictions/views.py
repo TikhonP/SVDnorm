@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
-from gensim.summarization.summarizer import summarize
-
+from .shrink import generate_summary
 
 def main(request):
     if request.method == 'GET':
@@ -9,8 +8,8 @@ def main(request):
         text = request.POST['text']
         vc = request.POST['wordcount']
         if vc == '':
-            vc = None
+            vc = 5
         else:
             vc = int(vc)
-        text = summarize(text, word_count=vc)
+        text = generate_summary(text, vc)
         return render(request, 'text.html', {'text': text})

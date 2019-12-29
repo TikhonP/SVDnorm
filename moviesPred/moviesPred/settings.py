@@ -26,6 +26,7 @@ SECRET_KEY = '7%+@p9(y%nj!822wdfn2v0op8$hrxtk*b-h7zl!49&!pp28h85'
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    'localhost',
     'dolbeb.hopto.org',
     'tikhon.zapto.org',
     '127.0.0.1'
