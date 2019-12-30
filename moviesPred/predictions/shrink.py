@@ -22,7 +22,7 @@ def proctext(text):
 import zipfile
 from gensim import models
 
-model_file = '/Users/tikhon/Desktop/CHOK/prog-Y/data/182.zip'
+model_file = '/Users/viktorpetrisev/Desktop/avito-category/avitoServer/avitoCategory/static/182.zip'
 
 with zipfile.ZipFile(model_file, 'r') as archive:
     stream = archive.open('model.bin')
