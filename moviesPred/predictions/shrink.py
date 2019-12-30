@@ -4,9 +4,14 @@ import numpy as np
 import networkx as nx
 from ufal.udpipe import Model, Pipeline
 import preproc
+from gensim import corpora
+from gensim.utils import simple_preprocess
+from gensim import models
+import numpy as np
+import scipy.spatial.distance as ds
 
-udpipe_model_url = 'https://rusvectores.org/static/models/udpipe_syntagrus.model'
-udpipe_filename = udpipe_model_url.split('/')[-1]
+udpipe_model_url = 'udpipe_syntagrus.model'
+udpipe_filename = udpipe_model_url
 
 modell = Model.load(udpipe_filename)
 process_pipeline = Pipeline(modell, 'tokenize', Pipeline.DEFAULT, Pipeline.DEFAULT, 'conllu')
@@ -85,14 +90,16 @@ def build_similarity_matrix(sentences, stop_words):
         for idx2 in range(len(sentences)):
             if idx1 == idx2: #ignore if both are same sentences
                 continue
-            similarity_matrix[idx1][idx2] = sentence_similarity(sentences[idx1], sentences[idx2], stop_words)
+            similarity_matrix[idx1][idx2] = sentence_similarity(sentences[idx1], sentences[idx2])
 
     return similarity_matrix
 
 def sentence_similarity(s1, s2):
-    s1, s2 = " ".join(proctext(s1)), " ".join(proctext(s2))
+    s1, s2 = " ".join(proctext(" ".join(s1))), " ".join(proctext(" ".join(s2)))
     vec1 = count2doc(s1.split(), model)
     vec2 = count2doc(s2.split(), model)
+
+
     return 1 - cosndist(vec1, vec2)
 
 def generate_summary(text, top_n=5):
@@ -112,3 +119,10 @@ def generate_summary(text, top_n=5):
       summarize_text.append(" ".join(ranked_sentence[i][1]))
 
     return ". ".join(summarize_text);
+
+
+if __name__ == "__main__":
+    print(proctext('Привет я сегодня ходил в магазины'))
+    text = open('text.txt', 'r').read()
+    print(text)
+    text = generate_summary(text)
